@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Animation Effects */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button Styles */
+.animated-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  background: linear-gradient(45deg, #0ea5e9, #06b6d4);
+  isolation: isolate;
+}
+
+.animated-button::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #0ea5e9,
+    #06b6d4,
+    #22d3ee,
+    #67e8f9,
+    #0ea5e9
+  );
+  animation: rotate 8s linear infinite;
+  opacity: 0.3;
+}
+
+.animated-button::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(45deg, #0ea5e9, #06b6d4);
+  border-radius: 9999px;
+  transition: all 0.4s ease;
+}
+
+.animated-button:hover::before {
+  opacity: 1;
+  animation: rotate 4s linear infinite;
+}
+
+.animated-button:hover::after {
+  inset: 2px;
+  background: linear-gradient(45deg, #0284c7, #0891b2);
+}
+
+.animated-button .button-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgb(225, 225, 225)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease;
+}
+
+.shimmer {
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hero Section Specific Styles */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Pulse Animation for Scroll Indicator */
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Rest of the styles remain the same */

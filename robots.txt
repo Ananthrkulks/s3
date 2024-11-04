@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Allow crawling of all content
+Allow: /services/
+Allow: /portfolio/
+Allow: /about/
+Allow: /contact/
+Allow: /blog/
+Allow: /careers/
+
+# Prevent crawling of search results and admin pages
+Disallow: /search
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+
+# Prevent crawling of tags and categories
+Disallow: /tag/
+Disallow: /category/
+
+# Allow crawling of assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+
+# Sitemaps
+Sitemap: https://aflaria.studio/sitemap.xml
